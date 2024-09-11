@@ -144,7 +144,7 @@ func main() {
 	}
 
 	for p := range ch {
-		folder := fmt.Sprintf("problems/%d", i)
+		folder := fmt.Sprintf("problems/%02d", i)
 		err = os.MkdirAll(folder, 0o777)
 		if err != nil {
 			log.Fatal(err)
@@ -160,6 +160,4 @@ func main() {
 		}
 		i++
 	}
-
-	// TODO: throw them into a sqlite database ? Not just write markdown to file?
 }
