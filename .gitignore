@@ -201,3 +201,5 @@ build-*/
 docgen_tmp/
 
 .vscode
+
+.dSYM
