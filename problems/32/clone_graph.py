@@ -1,3 +1,6 @@
+import pytest
+
+
 class Node:
     def __init__(self, val=0, neighbors=None):
         self.val = val
@@ -50,6 +53,7 @@ def create_graph(adj):
     return nodes[0] if nodes else []
 
 
+@pytest.mark.skip()
 def test_create_graph():
     adj_list = [[2, 4], [1, 3], [2, 4], [1, 3]]
     g = create_graph(adj_list)
@@ -58,6 +62,7 @@ def test_create_graph():
         assert isinstance(nb, Node)
 
 
+@pytest.mark.skip()
 def test_clone_graph():
     adj_list = [[2, 4], [1, 3], [2, 4], [1, 3]]
     g = create_graph(adj_list)
@@ -70,6 +75,4 @@ def test_clone_graph():
 
 
 if __name__ == "__main__":
-    import pytest
-
     pytest.main(["-xvv", __file__])

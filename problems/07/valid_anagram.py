@@ -19,6 +19,9 @@ def is_anagram(s: str, t: str) -> bool:
     """
     Returns True if s is an anagram of t, else False.
     """
+    if not s and not t:
+        return True
+
     if len(s) != len(t):
         return False
 
