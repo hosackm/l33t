@@ -58,7 +58,7 @@ brew install cmake glib
 
 #### Other dependencies
 
-In cases where data structures are needed, I've chosen to use some well-known libraries. These libraries are fetched as a part of the `cmake` process when generating your build files so you don't hav to do anything yourself. They are:
+In cases where data structures are needed, I've chosen to use some well-known libraries. These libraries are fetched as a part of the `cmake` process when generating your build files so you don't have to do anything yourself. They are:
 
  * [stb_ds](https://github.com/nothings/stb)
  * [igraph](https://github.com/igraph/igraph)
