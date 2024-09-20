@@ -14,6 +14,14 @@ Each problem solution contains its own test suite which can be run in several wa
 
 ### Python
 
+Make sure you have the Python dependencies available:
+
+```bash
+python -m venv venv
+. venv/bin/activate
+pip install -r requirements.txt
+```
+
 When a solution is a available in Python it can be run with the following:
 
 ```bash
