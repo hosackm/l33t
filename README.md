@@ -56,7 +56,7 @@ Some solutions are provided in C. In order to run the test suites you'll need to
 
 #### Dependencies
 
-[CMake](https://cmake.org) is used as the build (and test) system for C solutions. You'll need it and [glib](https://github.com/GNOME/glib) installed if you wish to build the C solutions. You can use your package manager of choice to do so.
+[CMake](https://cmake.org) is used as the meta-build (and test) system for C solutions. You'll need it and [glib](https://github.com/GNOME/glib) installed if you wish to build the C solutions. You can use your package manager of choice to do so.
 
 With [homebrew](https://brew.sh/) installed, run:
 
