@@ -41,11 +41,10 @@ int valid_parentheses(const char *s)
 
 void test_parens()
 {
-  static const int num_inputs = 5;
-  static const char *inputs[num_inputs] = {
+  static const char *inputs[5] = {
       "()", "[]", "{}", "([{}])", "{([])}",
   };
-  for (int i = 0; i < num_inputs; i++)
+  for (int i = 0; i < 5; i++)
   {
     g_assert_cmpint(1, ==, valid_parentheses(inputs[i]));
   }

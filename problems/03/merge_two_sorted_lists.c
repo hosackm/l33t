@@ -69,11 +69,10 @@ ln merge(ln first, ln second)
 
 void test_merge()
 {
-  static const int num_nodes = 6;
-  static const int vals[num_nodes] = {1, 2, 4, 1, 3, 4};
-  list_node_s nodes[num_nodes] = {0};
+  static const int vals[6] = {1, 2, 4, 1, 3, 4};
+  list_node_s nodes[6] = {0};
 
-  for (int i = 0; i < num_nodes; i++)
+  for (int i = 0; i < 6; i++)
   {
     if (i != 2 && i != 5)
     {
