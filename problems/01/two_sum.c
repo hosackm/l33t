@@ -37,7 +37,6 @@ answer two_sum(int *nums, int len, int target)
 
 void test_two_sum()
 {
-  static const int num_tests = 3;
   typedef struct test
   {
     int inputs[4];
@@ -46,13 +45,13 @@ void test_two_sum()
     answer answer;
   } test_s;
 
-  test_s tests[num_tests] = {
+  test_s tests[3] = {
       {{2, 7, 11, 5}, 4, 9, {0, 1}},
       {{3, 2, 4}, 3, 6, {1, 2}},
       {{3, 3}, 2, 6, {0, 1}},
   };
 
-  for (int i = 0; i < num_tests; i++)
+  for (int i = 0; i < 3; i++)
   {
     test_s test = tests[i];
     answer a = two_sum(test.inputs, test.len, test.target);
