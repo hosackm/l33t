@@ -1,0 +1,66 @@
+name: Build and Test
+
+# Run the workflow when changes are pushed to the 'main' branch
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Set up Python environment
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'  # Adjust as necessary
+
+      # Install Python dependencies
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      # Set up Go environment
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.x'  # Adjust to the required Go version
+
+      # Install Go dependencies
+      - name: Install Go dependencies
+        run: go mod download
+
+      # Run Go tests
+      - name: Run Go tests
+        run: CGO_ENABLED=0 go test ./...
+
+      # Create the build directory
+      - name: Create build directory
+        run: mkdir build
+
+      # Set up CMake and build
+      - name: Configure with CMake
+        run: |
+          cd build
+          cmake ..
+
+      # Run Makefile (if applicable)
+      - name: Run Make
+        run: |
+          cd build
+          make
+
+      # Run CTest (if applicable)
+      - name: Run CTest
+        run: |
+          cd build
+          ctest --output-on-failure
+
+      # Run Python tests with pytest
+      - name: Run pytest
+        run: pytest -xv
