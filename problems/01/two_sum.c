@@ -37,11 +37,10 @@ answer two_sum(int *nums, int len, int target)
 
 void test_two_sum()
 {
-  static const int max_nums = 4;
   static const int num_tests = 3;
   typedef struct test
   {
-    int inputs[max_nums];
+    int inputs[4];
     int len;
     int target;
     answer answer;
