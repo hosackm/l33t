@@ -21,6 +21,14 @@ jobs:
         with:
           python-version: '3.12'  # Adjust as necessary
 
+      - name: Cache Python dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
       # Install Python dependencies
       - name: Install Python dependencies
         run: pip install -r requirements.txt
@@ -30,6 +38,15 @@ jobs:
         uses: actions/setup-go@v4
         with:
           go-version: '1.23'  # Adjust to the required Go version
+
+      # Cache Go modules
+      - name: Cache Go modules
+        uses: actions/cache@v3
+        with:
+          path: ~/go/pkg/mod
+          key: ${{ runner.os }}-go-mod-${{ hashFiles('go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-mod-
 
       # Install Go dependencies
       - name: Install Go dependencies
