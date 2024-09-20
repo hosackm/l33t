@@ -1,6 +1,8 @@
 # l33t
 
-A place for me to store my leetcode solutions and work.
+![Build Status](https://github.com/hosackm/l33t/actions/workflows/test.yml/badge.svg) ![Activity](https://img.shields.io/github/commit-activity/m/hosackm/l33t.svg)
+
+A monorepo for me to store my leetcode solutions and work.
 
 ## Scope
 
