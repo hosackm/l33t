@@ -13,8 +13,6 @@ def subsets(arr: list[int]) -> list[list[int]]:
     for num in arr:
         subset = set()
         for s in powerset:
-            # add the set where we don't use this number
-            subset.add((num,))
             # add the set where we use this number
             subset.add(tuple(list(s) + [num]))
 
@@ -43,9 +41,6 @@ def subsets_ordered(arr: list[int]) -> list[list[int]]:
     for num in arr:
         subset = dict()
         for s in powerset:
-            # add the set where we don't use this number
-            subset[(num,)] = None
-            # add the set where we use this number
             subset[tuple(list(s) + [num])] = None
 
         # add them all back to power set
@@ -68,8 +63,15 @@ def test_subsets():
         [1, 2, 3],
     ]
     assert subsets_ordered([1, 2, 3]) == wants
-
     assert subsets_ordered([0]) == [[], [0]]
+
+    # unordered output requires
+    got = subsets([1, 2, 3])
+    assert all(w in got for w in wants)
+
+    wants = [[], [0]]
+    got = subsets([0])
+    assert all(w in got for w in wants)
 
 
 if __name__ == "__main__":
