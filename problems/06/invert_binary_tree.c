@@ -42,3 +42,16 @@ Test(InvertBtree, InvertBtreeTests)
   cr_expect(node1.right->left->val == 3);
   cr_expect(node1.right->right->val == 1);
 }
+
+Test(InvertBtree, InvertBtreeTests2)
+{
+  struct tree_node_t node3 = {3, NULL, NULL};
+  struct tree_node_t node2 = {1, NULL, NULL};
+  struct tree_node_t node1 = {2, &node2, &node3};
+
+  invert(&node1);
+
+  cr_expect(node1.val == 2);
+  cr_expect(node1.left->val == 3);
+  cr_expect(node1.right->val == 1);
+}

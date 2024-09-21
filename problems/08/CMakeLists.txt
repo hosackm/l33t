@@ -1,0 +1,4 @@
+add_executable(08_binary_search)
+target_link_libraries(08_binary_search criterion)
+target_sources(08_binary_search PRIVATE binary_search.c)
+add_test(NAME 08_binary_search COMMAND 08_binary_search)
