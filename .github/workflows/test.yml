@@ -15,6 +15,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Cache CMake dependencies
+        uses: actions/cache@v2
+        with:
+          path: |
+            build/
+            ~/.cmake
+          key: ${{ runner.os }}-cmake-${{ hashFiles('**/CMakeLists.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-cmake-
+
+      - name: Install Criterion
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libcriterion-dev
+
       # Set up Python environment
       - name: Set up Python
         uses: actions/setup-python@v4
