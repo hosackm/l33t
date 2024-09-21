@@ -1,4 +1,4 @@
 add_executable(04_best_time_to_buy_sell_stock)
 target_sources(04_best_time_to_buy_sell_stock PRIVATE best_time_to_buy_and_sell_stock.c)
-target_link_libraries(04_best_time_to_buy_sell_stock PRIVATE glib)
+target_link_libraries(04_best_time_to_buy_sell_stock PRIVATE criterion)
 add_test(NAME 04_best_time_to_buy_sell_stock COMMAND 04_best_time_to_buy_sell_stock)

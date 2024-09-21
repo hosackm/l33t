@@ -1,0 +1,4 @@
+add_executable(06_invert_binary_tree)
+target_sources(06_invert_binary_tree PRIVATE invert_binary_tree.c)
+target_link_libraries(06_invert_binary_tree PRIVATE criterion)
+add_test(NAME 06_invert_binary_tree COMMAND 06_invert_binary_tree --color=always)

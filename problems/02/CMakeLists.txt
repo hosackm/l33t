@@ -1,6 +1,6 @@
 add_executable(02_valid_parentheses)
 
-target_link_libraries(02_valid_parentheses PRIVATE glib)
+target_link_libraries(02_valid_parentheses PRIVATE criterion)
 target_link_libraries(02_valid_parentheses PRIVATE stb)
 target_sources(02_valid_parentheses PRIVATE valid_parentheses.c)
 add_test(NAME 02_valid_parentheses COMMAND 02_valid_parentheses)

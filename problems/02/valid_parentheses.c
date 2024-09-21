@@ -1,4 +1,4 @@
-#include <glib.h>
+#include <criterion/criterion.h>
 
 #define STB_DS_IMPLEMENTATION
 #include <stb_ds.h>
@@ -39,20 +39,13 @@ int valid_parentheses(const char *s)
   return arrlen(stack) == 0;
 }
 
-void test_parens()
+Test(ValidParens, ValidParensTests)
 {
   static const char *inputs[5] = {
       "()", "[]", "{}", "([{}])", "{([])}",
   };
   for (int i = 0; i < 5; i++)
   {
-    g_assert_cmpint(1, ==, valid_parentheses(inputs[i]));
+    cr_expect(valid_parentheses(inputs[i]) == 1);
   }
-}
-
-int main(int argc, char *argv[])
-{
-  g_test_init(&argc, &argv, NULL);
-  g_test_add_func("/valid_parentheses", test_parens);
-  return g_test_run();
 }

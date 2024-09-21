@@ -1,4 +1,4 @@
-#include <glib.h>
+#include <criterion/criterion.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -67,7 +67,7 @@ ln merge(ln first, ln second)
   return result;
 }
 
-void test_merge()
+Test(MergeLists, MergeListsTests)
 {
   static const int vals[6] = {1, 2, 4, 1, 3, 4};
   list_node_s nodes[6] = {0};
@@ -87,24 +87,17 @@ void test_merge()
   const int expected[6] = {1, 1, 2, 3, 4, 4};
   for (int i = 0; i < 6; i++)
   {
-    g_assert(merged);
-    g_assert_cmpint(merged->val, ==, expected[i]);
+    cr_expect(merged);
+    cr_expect(merged->val == expected[i]);
     merged = merged->next;
   }
 
   // both empty lists
   ln null = merge(NULL, NULL);
-  g_assert(!null);
+  cr_expect(!null);
 
   // one empty list
   list_node_s zero = {.val = 0, .next = NULL};
   ln zero_n = merge(NULL, &zero);
-  g_assert(&zero == zero_n);
-}
-
-int main(int argc, char **argv)
-{
-  g_test_init(&argc, &argv, NULL);
-  g_test_add_func("/merge_two_sorted_lists", test_merge);
-  g_test_run();
+  cr_expect(&zero == zero_n);
 }

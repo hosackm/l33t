@@ -1,4 +1,4 @@
-#include <glib.h> // testing
+#include <criterion/criterion.h>
 
 #define STB_DS_IMPLEMENTATION
 #include <stb_ds.h> // hashmap
@@ -35,7 +35,7 @@ answer two_sum(int *nums, int len, int target)
   return a;
 }
 
-void test_two_sum()
+Test(TwoSum, TwoSumTests)
 {
   typedef struct test
   {
@@ -55,13 +55,6 @@ void test_two_sum()
   {
     test_s test = tests[i];
     answer a = two_sum(test.inputs, test.len, test.target);
-    g_assert_cmpint(a.first, ==, test.answer.first);
+    cr_expect(a.first == test.answer.first);
   }
-}
-
-int main(int argc, char *argv[])
-{
-  g_test_init(&argc, &argv, NULL);
-  g_test_add_func("/two_sum", test_two_sum);
-  return g_test_run();
 }
