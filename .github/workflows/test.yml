@@ -56,7 +56,7 @@ jobs:
 
       # Create the build directory
       - name: Create build directory
-        run: mkdir build
+        run: mkdir -p build
 
       # Set up CMake and build
       - name: Configure with CMake
