@@ -8,7 +8,7 @@ A monorepo for me to store my leetcode solutions and work.
 
 I'm working off a subset of problems from [leetcode](leetcode.com) as chosen by the author of [Grind 75](https://www.techinterviewhandbook.org/grind75).
 
-My solutions will be done mostly in Python as that's the language I'd most likely choose to interview in. However, I'll occasionally solve problems in other languages when it suits the problem or if I'm curious to see how the solution would differ (ie. Go, Zig, C).
+My solutions will be done mostly in Python as that's the language I'd most likely choose to interview in. However, I'll occasionally solve problems in other languages when it suits the problem or if I'm curious to see how the solution would differ (ie. Go, Zig, C, etc.).
 
 ## Running tests
 
@@ -16,7 +16,7 @@ Each problem solution contains its own test suite which can be run in several wa
 
 ### Python
 
-Make sure you have the Python dependencies available:
+Make sure you have the Python dependencies installed:
 
 ```bash
 python -m venv venv
@@ -24,13 +24,15 @@ python -m venv venv
 pip install -r requirements.txt
 ```
 
-When a solution is a available in Python it can be run with the following:
+A Python solution can be run directly with the following:
 
 ```bash
 python problems/01/two_sum.py
 ```
 
-Also, all available tests can be run using `pytest` from the root directory, like so:
+**OR**
+
+all available tests can be run using `pytest` from the root directory, like so:
 
 ```bash
 pytest -xv
@@ -38,7 +40,7 @@ pytest -xv
 
 ### Go
 
-Go solutions can be run directly:
+Go solutions can be run directly, using:
 
 ```bash
 go test problems/01/*.go
@@ -54,16 +56,16 @@ CGO_ENABLED=0 go test ./...
 
 ### C
 
-Some solutions are provided in C. In order to run the test suites you'll need to ensure some dependencies are available on your machine.
+Some solutions are provided in C. In order to run the test suites you'll need to ensure some dependencies are installed on your machine.
 
 #### Dependencies
 
-[CMake](https://cmake.org) is used as the meta-build (and test) system for C solutions. You'll need it and [glib](https://github.com/GNOME/glib) installed if you wish to build the C solutions. You can use your package manager of choice to do so.
+[CMake](https://cmake.org) is used as the meta-build (and test) system for C solutions. You'll need it and [criterion](https://github.com/Snaipe/Criterion) installed if you wish to build the C solutions. You can use your package manager of choice to do so.
 
-With [homebrew](https://brew.sh/) installed, run:
+For example, with [homebrew](https://brew.sh/), run:
 
 ```bash
-brew install cmake glib
+brew install cmake glib criterion
 ```
 
 #### Other dependencies
@@ -83,14 +85,18 @@ mkdir build
 cd build
 cmake ..
 
-# or if you use ninja
+# or if you prefer ninja
 cmake .. -G Ninja
 ```
 
 You'll now have build files available and can build the project and run the test suite using the following:
 
 ```bash
-make  # or ninja
+make
+ctest
+
+# or with ninja
+ninja
 ctest
 ```
 
