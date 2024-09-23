@@ -23,7 +23,7 @@ int binary_search(int *nums, int len, int target)
   return -1;
 }
 
-Test(InvertBtree, InvertBtreeTests2)
+Test(BinarySearch, BinarySearchTests)
 {
   {
     int nums[6] = {-1, 0, 3, 5, 9, 12};
