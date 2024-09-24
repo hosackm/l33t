@@ -1,0 +1,5 @@
+add_executable(09_flood_fill)
+target_link_libraries(09_flood_fill PRIVATE criterion)
+target_link_libraries(09_flood_fill PRIVATE stb)
+target_sources(09_flood_fill PRIVATE flood_fill.c)
+add_test(NAME 09_flood_fill COMMAND 09_flood_fill)
