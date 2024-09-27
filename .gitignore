@@ -203,3 +203,4 @@ docgen_tmp/
 .vscode
 
 .dSYM
+.zig-cache

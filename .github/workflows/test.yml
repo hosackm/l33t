@@ -1,6 +1,5 @@
 name: Build and Test
 
-# Run the workflow when changes are pushed to the 'main' branch
 on:
   push:
     branches:
@@ -11,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
@@ -25,63 +23,48 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-cmake-
 
-      - name: Install Criterion
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libcriterion-dev
+      # Setup language tools
+      - name: Setup zig
+        uses: mlugg/setup-zig@v1
+        with:
+          version: 0.13.0
 
-      # Set up Python environment
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.x'  # Adjust as necessary
+          python-version: '3.12'
 
-      # Install Python dependencies
-      - name: Install Python dependencies
-        run: pip install -r requirements.txt
-
-      # Set up Go environment
       - name: Set up Go
         uses: actions/setup-go@v4
         with:
-          go-version: '1.x'  # Adjust to the required Go version
+          go-version: '1.23.1'
 
-      # Install Go dependencies
+      # Dependencies and build
+      - name: Install Criterion
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libcriterion-dev ninja-build
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
       - name: Install Go dependencies
         run: go mod download
 
-      # Run Go tests
+      # Run tests
+      - name: Build and test CMake/CTest
+        run: |
+          mkdir -p build
+          cd build
+          cmake .. -G Ninja
+          ninja
+          ctest --output-on-failure
+
       - name: Run Go tests
         run: CGO_ENABLED=0 go test ./...
 
-      # Create the build directory
-      - name: Create build directory
-        run: mkdir -p build
-
-      # Set up CMake and build
-      - name: Configure with CMake
-        run: |
-          cd build
-          cmake ..
-
-      # Run Makefile (if applicable)
-      - name: Run Make
-        run: |
-          cd build
-          make
-
-      # Run CTest (if applicable)
-      - name: Run CTest
-        run: |
-          cd build
-          ctest --output-on-failure
-
-      # Run Python tests with pytest
       - name: Run pytest
         run: pytest -xv
-
-      - name: Setup zig
-        uses: mlugg/setup-zig@v1
 
       - name: Run zig tests
         run: zig build test
