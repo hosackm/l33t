@@ -118,6 +118,16 @@ Test project /Users/hosack/code/leet/build
 Total Test time (real) =   0.72 sec
 ```
 
-### Zig
+### Running zig tests
 
-> **TODO**
+All tests are imported into `tests.zig` which is built and run with the following:
+
+```bash
+zig build test
+```
+
+If you'd like to execute a solution's tests directly you can run:
+
+```bash
+zig test problems/01/two_sum.zig
+```
