@@ -6,11 +6,8 @@ enable_testing()
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-# Make interface to glib-2.0
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(GLIB REQUIRED IMPORTED_TARGET glib-2.0)
-add_library(glib INTERFACE)
-target_link_libraries(glib INTERFACE PkgConfig::GLIB)
+# when working offline, forcibly use cache
+# set(FETCHCONTENT_FULLY_DISCONNECTED ON)
 
 # Make interface for stb
 include(FetchContent)
@@ -61,3 +58,4 @@ add_subdirectory(problems/06)
 add_subdirectory(problems/07)
 add_subdirectory(problems/08)
 add_subdirectory(problems/09)
+add_subdirectory(problems/10)
