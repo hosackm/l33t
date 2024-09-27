@@ -79,3 +79,8 @@ jobs:
       # Run Python tests with pytest
       - name: Run pytest
         run: pytest -xv
+
+      - name: Run zig tests
+        uses: actions/checkout@v3
+        uses: mlugg/setup-zig@v1
+        run: zig build test
