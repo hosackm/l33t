@@ -54,7 +54,6 @@ jobs:
       # Run tests
       - name: Build and test CMake/CTest
         run: |
-          rm -rf build
           mkdir -p build
           cd build
           cmake .. -G Ninja
