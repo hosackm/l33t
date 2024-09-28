@@ -1,0 +1,4 @@
+add_executable(12_linked_list_cycle)
+target_link_libraries(12_linked_list_cycle PRIVATE criterion)
+target_sources(12_linked_list_cycle PRIVATE linked_list_cycle.c)
+add_test(NAME 12_linked_list_cycle COMMAND 12_linked_list_cycle)
