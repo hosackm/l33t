@@ -1,0 +1,7 @@
+.clang-format
+.clangd
+build
+zig-cache
+.vscode
+.github
+scrape
