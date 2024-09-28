@@ -1,17 +1,9 @@
+#include "tree.h"
 #include <criterion/criterion.h>
-#include <sys/resource.h>
 
 #define SZ(arr, x) (sizeof(arr) / sizeof(x))
 
-typedef struct tree_node_s node;
-struct tree_node_s
-{
-  int val;
-  node *left;
-  node *right;
-};
-
-int lca(node *root, node *first, node *second)
+int lca(tree *root, tree *first, tree *second)
 {
   if (!root)
   {
@@ -36,44 +28,30 @@ int lca(node *root, node *first, node *second)
   }
 }
 
-node *init_tree(int *nums, int len)
+tree *init_tree(int *nums, int len)
 {
-  node *tree = malloc(sizeof(node) * len);
+  tree *t = malloc(sizeof(tree) * len);
   for (int i = 0; i < len; i++)
   {
     if ((2 * i + 1) < 11)
     {
-      tree[i].left = (nums[2 * i + 1] == -1) ? NULL : &tree[2 * i + 1];
+      t[i].left = (nums[2 * i + 1] == -1) ? NULL : &t[2 * i + 1];
     }
     if ((2 * i + 2) < 11)
     {
-      tree[i].right = (nums[2 * i + 2] == -1) ? NULL : &tree[2 * i + 2];
+      t[i].right = (nums[2 * i + 2] == -1) ? NULL : &t[2 * i + 2];
     }
-    tree[i].val = nums[i];
+    t[i].val = nums[i];
   }
-  return tree;
+  return t;
 }
 
 TestSuite(TestLCA);
 
-Test(TestLCA, InitTreeNode)
-{
-  int nodes[] = {6, 2, 8, 0, 4, 7, 9, -1, -1, 3, 5};
-  node *root = init_tree(nodes, SZ(nodes, int));
-
-  cr_expect(root->val == 6);
-  cr_expect(root->left->val == 2);
-  cr_expect(root->right->val == 8);
-  cr_expect(root->left->left->val == 0);
-  cr_expect(root->left->left->left == NULL);
-
-  free(root);
-}
-
 Test(TestLCA, FirstExample)
 {
   int nodes[] = {6, 2, 8, 0, 4, 7, 9, -1, -1, 3, 5};
-  node *root = init_tree(nodes, SZ(nodes, int));
+  tree *root = init_tree(nodes, SZ(nodes, int));
 
   int anc = lca(root, root->left, root->right);
   cr_expect(anc == 6);
@@ -83,7 +61,7 @@ Test(TestLCA, FirstExample)
 Test(TestLCA, SecondExample)
 {
   int nodes[] = {6, 2, 8, 0, 4, 7, 9, -1, -1, 3, 5};
-  node *root = init_tree(nodes, SZ(nodes, int));
+  tree *root = init_tree(nodes, SZ(nodes, int));
 
   int anc = lca(root, root->left, root->left->right);
   cr_expect(anc == 2);
@@ -93,7 +71,7 @@ Test(TestLCA, SecondExample)
 Test(TestLCA, ThirdExample)
 {
   int nodes[] = {2, 1};
-  node *root = init_tree(nodes, SZ(nodes, int));
+  tree *root = init_tree(nodes, SZ(nodes, int));
 
   int anc = lca(root, root, root->left);
   cr_expect(anc == 2);

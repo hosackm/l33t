@@ -1,23 +1,14 @@
+#include "list.h"
 #include <criterion/criterion.h>
-#include <stdio.h>
-#include <stdlib.h>
 
-typedef struct ListNode
-{
-  int val;
-  struct ListNode *next;
-} list_node_s;
-typedef list_node_s *list_node;
-typedef list_node ln;
-
-ln merge(ln first, ln second)
+lnode *merge(lnode *first, lnode *second)
 {
   if (!first && !second)
   {
     return NULL;
   }
 
-  ln result;
+  lnode *result;
 
   // choose which list to use as head
   if (first && second)
@@ -47,7 +38,7 @@ ln merge(ln first, ln second)
     }
   }
 
-  ln node = result;
+  lnode *node = result;
   // iterate through lists and set value next
   while (first || second)
   {
@@ -70,7 +61,7 @@ ln merge(ln first, ln second)
 Test(MergeLists, MergeListsTests)
 {
   static const int vals[6] = {1, 2, 4, 1, 3, 4};
-  list_node_s nodes[6] = {0};
+  lnode nodes[6] = {0};
 
   for (int i = 0; i < 6; i++)
   {
@@ -82,7 +73,7 @@ Test(MergeLists, MergeListsTests)
   }
 
   // correctly merge two lists
-  list_node merged = merge(&nodes[0], &nodes[3]);
+  lnode *merged = merge(&nodes[0], &nodes[3]);
 
   const int expected[6] = {1, 1, 2, 3, 4, 4};
   for (int i = 0; i < 6; i++)
@@ -93,11 +84,11 @@ Test(MergeLists, MergeListsTests)
   }
 
   // both empty lists
-  ln null = merge(NULL, NULL);
+  lnode *null = merge(NULL, NULL);
   cr_expect(!null);
 
   // one empty list
-  list_node_s zero = {.val = 0, .next = NULL};
-  ln zero_n = merge(NULL, &zero);
+  lnode zero = {.val = 0, .next = NULL};
+  lnode *zero_n = merge(NULL, &zero);
   cr_expect(&zero == zero_n);
 }

@@ -6,6 +6,13 @@ enable_testing()
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+# Create library for shared data structure code between solutions
+add_library(l33t STATIC
+    l33tlib/src/tree.c
+    l33tlib/src/list.c
+)
+target_include_directories(l33t PUBLIC l33tlib/include)
+
 # when working offline, forcibly use cache
 # set(FETCHCONTENT_FULLY_DISCONNECTED ON)
 
@@ -49,6 +56,13 @@ find_package(Criterion REQUIRED)
 add_library(criterion INTERFACE)
 target_link_libraries(criterion INTERFACE ${CRITERION_LIBRARY})
 target_include_directories(criterion INTERFACE ${CRITERION_INCLUDE_DIRS})
+
+# Add lib test executable
+add_executable(test_l33t_lib
+    l33tlib/test/test_list.c
+    l33tlib/test/test_tree.c
+)
+target_link_libraries(test_l33t_lib PRIVATE l33t criterion)
 
 # Add strict compiler flags for my code. Won't fix
 # upstream dependencies

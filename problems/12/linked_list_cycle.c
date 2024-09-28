@@ -1,11 +1,5 @@
+#include "list.h"
 #include <criterion/criterion.h>
-
-typedef struct list_node_s lnode;
-struct list_node_s
-{
-  int val;
-  lnode *next;
-};
 
 int has_cycle(lnode *list)
 {
@@ -37,55 +31,7 @@ int has_cycle(lnode *list)
   }
 }
 
-lnode *init_list_node(int *nums, int len)
-{
-  lnode *head = NULL;
-  lnode *prev = NULL;
-  for (int i = 0; i < len; i++)
-  {
-    lnode *node = malloc(sizeof(lnode));
-    node->next = NULL;
-    node->val = nums[i];
-
-    if (!head)
-    {
-      head = node;
-    }
-
-    if (prev)
-    {
-      prev->next = node;
-    }
-    prev = node;
-  }
-
-  return head;
-}
-
-void destroy_list_node(lnode *ll, int len)
-{
-  for (int i = 0; i < len; i++)
-  {
-    lnode *next = ll->next;
-    free(ll);
-    ll = next;
-  }
-}
-
 TestSuite(LinkedListCycle);
-Test(LinkedListCycle, LinkedListInit)
-{
-  int nums[] = {1, 2, 3, 4};
-  lnode *ll = init_list_node(nums, 4);
-  lnode *node = ll;
-  for (int i = 0; i < 4; i++)
-  {
-    cr_expect(node->val == (i + 1));
-    node = node->next;
-  }
-
-  destroy_list_node(ll, 4);
-}
 
 Test(LinkedListCycle, LinkedListCycleFirst)
 {

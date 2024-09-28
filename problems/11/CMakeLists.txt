@@ -1,4 +1,5 @@
 add_executable(11_balanced_binary_tree)
 target_link_libraries(11_balanced_binary_tree PRIVATE criterion)
+target_link_libraries(11_balanced_binary_tree PRIVATE l33t)
 target_sources(11_balanced_binary_tree PRIVATE balanced_binary_tree.c)
 add_test(NAME 11_balanced_binary_tree COMMAND 11_balanced_binary_tree)

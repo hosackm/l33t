@@ -1,18 +1,11 @@
+#include "tree.h"
 #include <criterion/criterion.h>
 
-typedef struct tree_node_t treenode;
-struct tree_node_t
-{
-  int val;
-  treenode *left;
-  treenode *right;
-};
-
-void invert(treenode *root)
+void invert(tree *root)
 {
   if (root)
   {
-    treenode *tmp = root->left;
+    tree *tmp = root->left;
     root->left = root->right;
     root->right = tmp;
 
@@ -23,13 +16,13 @@ void invert(treenode *root)
 
 Test(InvertBtree, InvertBtreeTests)
 {
-  struct tree_node_t node7 = {9, NULL, NULL};
-  struct tree_node_t node6 = {6, NULL, NULL};
-  struct tree_node_t node5 = {3, NULL, NULL};
-  struct tree_node_t node4 = {1, NULL, NULL};
-  struct tree_node_t node3 = {7, &node6, &node7};
-  struct tree_node_t node2 = {2, &node4, &node5};
-  struct tree_node_t node1 = {4, &node2, &node3};
+  tree node7 = {NULL, NULL, 9};
+  tree node6 = {NULL, NULL, 6};
+  tree node5 = {NULL, NULL, 3};
+  tree node4 = {NULL, NULL, 1};
+  tree node3 = {&node6, &node7, 7};
+  tree node2 = {&node4, &node5, 2};
+  tree node1 = {&node2, &node3, 4};
 
   invert(&node1);
 
@@ -45,9 +38,9 @@ Test(InvertBtree, InvertBtreeTests)
 
 Test(InvertBtree, InvertBtreeTests2)
 {
-  struct tree_node_t node3 = {3, NULL, NULL};
-  struct tree_node_t node2 = {1, NULL, NULL};
-  struct tree_node_t node1 = {2, &node2, &node3};
+  tree node3 = {NULL, NULL, 3};
+  tree node2 = {NULL, NULL, 1};
+  tree node1 = {&node2, &node3, 2};
 
   invert(&node1);
 

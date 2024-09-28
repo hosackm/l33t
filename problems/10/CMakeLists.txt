@@ -1,4 +1,5 @@
 add_executable(10_lowest_common_ancestor)
 target_link_libraries(10_lowest_common_ancestor PRIVATE criterion)
+target_link_libraries(10_lowest_common_ancestor PRIVATE l33t)
 target_sources(10_lowest_common_ancestor PRIVATE lowest_common_ancestor.c)
 add_test(NAME 10_lowest_common_ancestor COMMAND 10_lowest_common_ancestor)

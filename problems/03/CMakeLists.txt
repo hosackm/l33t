@@ -1,6 +1,7 @@
 add_executable(03_merge_sorted_lists)
 target_sources(03_merge_sorted_lists PRIVATE merge_two_sorted_lists.c)
 target_link_libraries(03_merge_sorted_lists PRIVATE criterion)
+target_link_libraries(03_merge_sorted_lists PRIVATE l33t)
 add_test(NAME 03_merge_sorted_lists COMMAND 03_merge_sorted_lists)
 
 add_custom_target(leaks
