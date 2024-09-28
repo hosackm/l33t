@@ -1,5 +1,4 @@
-#include <glib.h>
-#include <stdio.h>
+#include <criterion/criterion.h>
 #include <string.h>
 
 int valid_anagram(const char *s, const char *t)
@@ -29,15 +28,8 @@ int valid_anagram(const char *s, const char *t)
   return 1;
 }
 
-void test_valid_anagram()
+Test(ValidAnagram, LeetcodeExamples)
 {
-  g_assert_cmpint(1, ==, valid_anagram("anagram", "nagaram"));
-  g_assert_cmpint(0, ==, valid_anagram("rat", "tag"));
-}
-
-int main(int argc, char **argv)
-{
-  g_test_init(&argc, &argv, NULL);
-  g_test_add_func("/valid_anagram", test_valid_anagram);
-  return g_test_run();
+  cr_expect(valid_anagram("anagram", "nagaram") == 1);
+  cr_expect(valid_anagram("rat", "tag") == 0);
 }
