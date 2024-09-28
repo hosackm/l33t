@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 
-project(l33t-c C)
+project(l33t-c C CXX)
 
 enable_testing()
 
@@ -8,6 +8,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # when working offline, forcibly use cache
 # set(FETCHCONTENT_FULLY_DISCONNECTED ON)
+
+set(USE_LOCAL_IGRAPH "Use local deps instead of downloading" OFF)
 
 # Make interface for stb
 include(FetchContent)
@@ -21,14 +23,18 @@ add_library(stb INTERFACE)
 target_include_directories(stb INTERFACE ${stb_SOURCE_DIR})
 
 # Make interface for igraph
-FetchContent_Declare(
-    igraph
-    GIT_REPOSITORY https://github.com/igraph/igraph.git
-    GIT_TAG 0.10.13
-)
-FetchContent_MakeAvailable(igraph)
-add_library(libigraph INTERFACE)
-target_link_libraries(libigraph INTERFACE igraph)
+if (USE_LOCAL_IGRAPH)
+    find_package(igraph REQUIRED)
+else()
+    FetchContent_Declare(
+        igraph
+        GIT_REPOSITORY https://github.com/igraph/igraph.git
+        GIT_TAG 0.10.13
+    )
+    FetchContent_MakeAvailable(igraph)
+    add_library(libigraph INTERFACE)
+    target_link_libraries(libigraph INTERFACE igraph)
+endif()
 
 # Add Criterion library for testing
 FetchContent_Declare(
