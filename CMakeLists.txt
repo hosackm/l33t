@@ -64,6 +64,8 @@ add_executable(test_l33t_lib
 )
 target_link_libraries(test_l33t_lib PRIVATE l33t criterion)
 
+add_test(NAME test_l33t_lib COMMAND test_l33t_lib)
+
 # Add strict compiler flags for my code. Won't fix
 # upstream dependencies
 add_compile_options(-Wall -Wextra -Werror)
