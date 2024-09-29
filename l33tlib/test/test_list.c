@@ -5,13 +5,13 @@ TestSuite(LinkedList);
 Test(LinkedList, LinkedListInit)
 {
   int nums[] = {1, 2, 3, 4};
-  lnode *ll = init_list_node(nums, 4);
-  lnode *node = ll;
+  l33t_list *ll = l33t_list_init(nums, 4);
+  l33t_list *node = ll;
   for (int i = 0; i < 4; i++)
   {
     cr_expect(node->val == (i + 1));
     node = node->next;
   }
 
-  destroy_list_node(ll, 4);
+  l33t_list_destroy(ll, 4);
 }

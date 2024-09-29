@@ -5,7 +5,7 @@ TestSuite(TreeTests);
 Test(TreeTests, InitTreeNode)
 {
   int nodes[] = {6, 2, 8, 0, 4, 7, 9, -1, -1, 3, 5};
-  tree *root = init_tree(nodes, sizeof(nodes) / sizeof(int));
+  l33t_tree *root = l33t_tree_init(nodes, sizeof(nodes) / sizeof(int));
 
   cr_expect(root->val == 6);
   cr_expect(root->left->val == 2);

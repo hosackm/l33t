@@ -2,35 +2,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX(a, b) ((a > b) ? a : b)
-
-int max_height(tree *node, int level)
+l33t_tree *l33t_tree_init(int *nums, int len)
 {
-  if (node == NULL)
-  {
-    return level;
-  }
-
-  int lh = max_height(node->left, level + 1);
-  int rh = max_height(node->right, level + 1);
-  return MAX(lh, rh);
-}
-
-int is_balanced(tree *t)
-{
-  if (t == NULL || (unsigned long long)t == 0x1e1)
-  {
-    return 1;
-  }
-
-  const int lh = max_height(t->left, 0);
-  const int rh = max_height(t->right, 0);
-  return (lh - rh) <= 1;
-}
-
-tree *init_tree(int *nums, int len)
-{
-  tree *t = malloc(sizeof(tree) * len);
+  l33t_tree *t = malloc(sizeof(l33t_tree) * len);
 
   for (int i = 0; i < len; i++)
   {
@@ -49,3 +23,5 @@ tree *init_tree(int *nums, int len)
 
   return t;
 }
+
+void l33t_tree_destroy(l33t_tree *ll) { free(ll); }

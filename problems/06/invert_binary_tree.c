@@ -1,11 +1,11 @@
-#include "tree.h"
 #include <criterion/criterion.h>
+#include <l33t.h>
 
-void invert(tree *root)
+void invert(l33t_tree *root)
 {
   if (root)
   {
-    tree *tmp = root->left;
+    l33t_tree *tmp = root->left;
     root->left = root->right;
     root->right = tmp;
 
@@ -16,13 +16,13 @@ void invert(tree *root)
 
 Test(InvertBtree, InvertBtreeTests)
 {
-  tree node7 = {NULL, NULL, 9};
-  tree node6 = {NULL, NULL, 6};
-  tree node5 = {NULL, NULL, 3};
-  tree node4 = {NULL, NULL, 1};
-  tree node3 = {&node6, &node7, 7};
-  tree node2 = {&node4, &node5, 2};
-  tree node1 = {&node2, &node3, 4};
+  l33t_tree node7 = {NULL, NULL, 9};
+  l33t_tree node6 = {NULL, NULL, 6};
+  l33t_tree node5 = {NULL, NULL, 3};
+  l33t_tree node4 = {NULL, NULL, 1};
+  l33t_tree node3 = {&node6, &node7, 7};
+  l33t_tree node2 = {&node4, &node5, 2};
+  l33t_tree node1 = {&node2, &node3, 4};
 
   invert(&node1);
 
@@ -38,9 +38,9 @@ Test(InvertBtree, InvertBtreeTests)
 
 Test(InvertBtree, InvertBtreeTests2)
 {
-  tree node3 = {NULL, NULL, 3};
-  tree node2 = {NULL, NULL, 1};
-  tree node1 = {&node2, &node3, 2};
+  l33t_tree node3 = {NULL, NULL, 3};
+  l33t_tree node2 = {NULL, NULL, 1};
+  l33t_tree node1 = {&node2, &node3, 2};
 
   invert(&node1);
 

@@ -1,13 +1,13 @@
 #include "list.h"
 #include <stdlib.h>
 
-lnode *init_list_node(int *nums, int len)
+l33t_list *l33t_list_init(int *nums, int len)
 {
-  lnode *head = NULL;
-  lnode *prev = NULL;
+  l33t_list *head = NULL;
+  l33t_list *prev = NULL;
   for (int i = 0; i < len; i++)
   {
-    lnode *node = malloc(sizeof(lnode));
+    l33t_list *node = malloc(sizeof(l33t_list));
     node->next = NULL;
     node->val = nums[i];
 
@@ -26,11 +26,11 @@ lnode *init_list_node(int *nums, int len)
   return head;
 }
 
-void destroy_list_node(lnode *ll, int len)
+void l33t_list_destroy(l33t_list *ll, int len)
 {
   for (int i = 0; i < len; i++)
   {
-    lnode *next = ll->next;
+    l33t_list *next = ll->next;
     free(ll);
     ll = next;
   }

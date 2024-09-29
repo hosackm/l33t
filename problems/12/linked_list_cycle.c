@@ -1,15 +1,15 @@
-#include "list.h"
 #include <criterion/criterion.h>
+#include <l33t.h>
 
-int has_cycle(lnode *list)
+int has_cycle(l33t_list *list)
 {
   if (!list)
   {
     return 0;
   }
 
-  lnode *slow = list;
-  lnode *fast = list->next;
+  l33t_list *slow = list;
+  l33t_list *fast = list->next;
   while (1)
   {
     if (!slow || !fast)
@@ -36,29 +36,29 @@ TestSuite(LinkedListCycle);
 Test(LinkedListCycle, LinkedListCycleFirst)
 {
   int nums[] = {3, 2, 0, -4};
-  lnode *ll = init_list_node(nums, 4);
+  l33t_list *ll = l33t_list_init(nums, 4);
 
-  lnode *second = ll->next;
-  lnode *fourth = ll->next->next->next;
+  l33t_list *second = ll->next;
+  l33t_list *fourth = ll->next->next->next;
   fourth->next = second;
 
   cr_expect(has_cycle(ll) == 1);
 
-  destroy_list_node(ll, 4);
+  l33t_list_destroy(ll, 4);
 }
 
 Test(LinkedListCycle, LinkedListCycleSecond)
 {
   int nums[] = {1, 2};
-  lnode *ll = init_list_node(nums, 2);
+  l33t_list *ll = l33t_list_init(nums, 2);
   cr_expect(has_cycle(ll) == 0);
-  destroy_list_node(ll, 2);
+  l33t_list_destroy(ll, 2);
 }
 
 Test(LinkedListCycle, LinkedListCycleThird)
 {
   int nums[] = {1};
-  lnode *ll = init_list_node(nums, 1);
+  l33t_list *ll = l33t_list_init(nums, 1);
   cr_expect(has_cycle(ll) == 0);
-  destroy_list_node(ll, 1);
+  l33t_list_destroy(ll, 1);
 }

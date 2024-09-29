@@ -1,14 +1,14 @@
-#include "list.h"
 #include <criterion/criterion.h>
+#include <l33t.h>
 
-lnode *merge(lnode *first, lnode *second)
+l33t_list *merge(l33t_list *first, l33t_list *second)
 {
   if (!first && !second)
   {
     return NULL;
   }
 
-  lnode *result;
+  l33t_list *result;
 
   // choose which list to use as head
   if (first && second)
@@ -38,7 +38,7 @@ lnode *merge(lnode *first, lnode *second)
     }
   }
 
-  lnode *node = result;
+  l33t_list *node = result;
   // iterate through lists and set value next
   while (first || second)
   {
@@ -61,7 +61,7 @@ lnode *merge(lnode *first, lnode *second)
 Test(MergeLists, MergeListsTests)
 {
   static const int vals[6] = {1, 2, 4, 1, 3, 4};
-  lnode nodes[6] = {0};
+  l33t_list nodes[6] = {0};
 
   for (int i = 0; i < 6; i++)
   {
@@ -73,7 +73,7 @@ Test(MergeLists, MergeListsTests)
   }
 
   // correctly merge two lists
-  lnode *merged = merge(&nodes[0], &nodes[3]);
+  l33t_list *merged = merge(&nodes[0], &nodes[3]);
 
   const int expected[6] = {1, 1, 2, 3, 4, 4};
   for (int i = 0; i < 6; i++)
@@ -84,11 +84,11 @@ Test(MergeLists, MergeListsTests)
   }
 
   // both empty lists
-  lnode *null = merge(NULL, NULL);
+  l33t_list *null = merge(NULL, NULL);
   cr_expect(!null);
 
   // one empty list
-  lnode zero = {.val = 0, .next = NULL};
-  lnode *zero_n = merge(NULL, &zero);
+  l33t_list zero = {.val = 0, .next = NULL};
+  l33t_list *zero_n = merge(NULL, &zero);
   cr_expect(&zero == zero_n);
 }
