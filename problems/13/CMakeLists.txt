@@ -1,0 +1,6 @@
+add_executable(13_implement_queue_using_stacks)
+target_link_libraries(13_implement_queue_using_stacks PRIVATE criterion)
+target_link_libraries(13_implement_queue_using_stacks PRIVATE stb)
+target_link_libraries(13_implement_queue_using_stacks PRIVATE l33t)
+target_sources(13_implement_queue_using_stacks PRIVATE implement_queue_using_stacks.c)
+add_test(NAME 13_implement_queue_using_stacks COMMAND 13_implement_queue_using_stacks)
