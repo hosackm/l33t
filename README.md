@@ -14,6 +14,22 @@ My solutions will be done mostly in Python as that's the language I'd most likel
 
 Each problem solution contains its own test suite which can be run in several ways depending on the implementation language.
 
+### Running tests with Docker
+
+The easiest way to run the tests is by using docker. A Dockerfile is provided to create a container in which the tests can be built and run. It can be built with the following:
+
+```bash
+docker build . -t l33t
+```
+
+The problems folder must be mounted into the container in order to run the tests. This way the files can be added or modified and updates will be present when running the tests.
+
+Run the container like so:
+
+```bash
+docker run -it -v ./problems:/root/problems l33t
+```
+
 ### Python
 
 Make sure you have the Python dependencies installed:
@@ -65,7 +81,7 @@ Some solutions are provided in C. In order to run the test suites you'll need to
 For example, with [homebrew](https://brew.sh/), run:
 
 ```bash
-brew install cmake glib criterion
+brew install cmake criterion
 ```
 
 #### Other dependencies
