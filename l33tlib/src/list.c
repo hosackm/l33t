@@ -1,4 +1,4 @@
-#include "list.h"
+#include <l33t.h>
 #include <stdlib.h>
 
 l33t_list *l33t_list_init(int *nums, int len)

@@ -27,11 +27,10 @@
  * @endcode
  */
 
+#include "error.h"
 #include "list.h"
+#include "stack.h"
 #include "tree.h"
 
 #define MAX(a, b) ((a > b) ? a : b)
 #define ARRAY_SIZE(arr, t) (sizeof(arr) / sizeof(t))
-
-#define L33T_ERR_OK 0
-// #define L33T_ERR_XXX 1

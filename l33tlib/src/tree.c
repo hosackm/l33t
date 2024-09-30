@@ -1,4 +1,4 @@
-#include "tree.h"
+#include <l33t.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -24,4 +24,7 @@ l33t_tree *l33t_tree_init(int *nums, int len)
   return t;
 }
 
-void l33t_tree_destroy(l33t_tree *tree) { free(tree); }
+void l33t_tree_destroy(l33t_tree *tree)
+{
+  free(tree);
+}
