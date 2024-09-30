@@ -8,16 +8,21 @@ struct tree_s
   int val;
 };
 
-/*
- * Initialize a tree containing nodes that
- * have values corresponding to nums. -1 is
- * used to represent NULL tree nodes.
+/**
+ * @brief Initialize a tree.
+ *
+ * Allocates memory and assigns nodes according to values in nums.
+ * Use -1 to create a NULL node.
+ *
+ * @param[in] nums An arrray of integers to be inserted as nodes.
+ * @param[in] len The length of nums.
+ * @return The tree.
  */
 l33t_tree *l33t_tree_init(int *nums, int len);
 
-/*
- * Deallocate all memory used by the list.
- * Must provide len to avoid following cycles
- * and freeing already freed nodes.
+/**
+ * @brief Deallocate the memory used by a tree.
+ *
+ * @param[in] tree The tree.
  */
-void l33t_tree_destroy(l33t_tree *ll);
+void l33t_tree_destroy(l33t_tree *tree);

@@ -1,0 +1,24 @@
+\doxysection{list.\+h}
+\hypertarget{list_8h_source}{}\label{list_8h_source}\index{l33tlib/include/list.h@{l33tlib/include/list.h}}
+\mbox{\hyperlink{list_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlist__node__s}{list\_node\_s}}\ \mbox{\hyperlink{structlist__node__s}{l33t\_list}};}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlist__node__s}{list\_node\_s}}}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structlist__node__s_a850080b38afca3d07324b6a5f72b3535}{val}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00011\ \ \ \mbox{\hyperlink{structlist__node__s}{l33t\_list}}\ *\mbox{\hyperlink{structlist__node__s_a8531e6c76f29805c604c5523524c4800}{next}};\ }
+\DoxyCodeLine{00012\ \};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00023\ \mbox{\hyperlink{structlist__node__s}{l33t\_list}}\ *\mbox{\hyperlink{list_8h_ab8345c5e4baf96c09b3241ec6637838b}{l33t\_list\_init}}(\textcolor{keywordtype}{int}\ *nums,\ \textcolor{keywordtype}{int}\ len);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ Deallocate\ all\ memory\ used\ by\ the\ list.}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ Must\ provide\ len\ to\ avoid\ following\ cycles}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ and\ freeing\ already\ freed\ nodes.}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00038\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{list_8h_a947e71af94020a391a66c474d1cb324f}{l33t\_list\_destroy}}(\mbox{\hyperlink{structlist__node__s}{l33t\_list}}\ *ll,\ \textcolor{keywordtype}{int}\ len);}
+
+\end{DoxyCode}

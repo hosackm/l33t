@@ -1,0 +1,63 @@
+\doxysection{l33tlib/include/l33t.h File Reference}
+\hypertarget{l33t_8h}{}\label{l33t_8h}\index{l33tlib/include/l33t.h@{l33tlib/include/l33t.h}}
+
+
+Contains API functions for frequently used leetcode types.  
+
+
+{\ttfamily \#include "{}list.\+h"{}}\newline
+{\ttfamily \#include "{}tree.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{l33t_8h_afa99ec4acc4ecb2dc3c2d05da15d0e3f}{MAX}}(a,  b)
+\item 
+\#define \mbox{\hyperlink{l33t_8h_a280c71bcc30cd36f9d81d1e1c181f71c}{ARRAY\+\_\+\+SIZE}}(arr,  t)
+\item 
+\#define \mbox{\hyperlink{l33t_8h_a16fe6521db70d118efd43ec1cc235ece}{L33\+T\+\_\+\+ERR\+\_\+\+OK}}~0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains API functions for frequently used leetcode types. 
+
+\begin{DoxyAuthor}{Author}
+Matt Hosack 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+September 2024 
+\end{DoxyDate}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{l33t_8h_a280c71bcc30cd36f9d81d1e1c181f71c}\index{l33t.h@{l33t.h}!ARRAY\_SIZE@{ARRAY\_SIZE}}
+\index{ARRAY\_SIZE@{ARRAY\_SIZE}!l33t.h@{l33t.h}}
+\doxysubsubsection{\texorpdfstring{ARRAY\_SIZE}{ARRAY\_SIZE}}
+{\footnotesize\ttfamily \label{l33t_8h_a280c71bcc30cd36f9d81d1e1c181f71c} 
+\#define ARRAY\+\_\+\+SIZE(\begin{DoxyParamCaption}\item[{}]{arr}{, }\item[{}]{t}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\textcolor{keyword}{sizeof}(arr)\ /\ \textcolor{keyword}{sizeof}(t))}
+
+\end{DoxyCode}
+\Hypertarget{l33t_8h_a16fe6521db70d118efd43ec1cc235ece}\index{l33t.h@{l33t.h}!L33T\_ERR\_OK@{L33T\_ERR\_OK}}
+\index{L33T\_ERR\_OK@{L33T\_ERR\_OK}!l33t.h@{l33t.h}}
+\doxysubsubsection{\texorpdfstring{L33T\_ERR\_OK}{L33T\_ERR\_OK}}
+{\footnotesize\ttfamily \label{l33t_8h_a16fe6521db70d118efd43ec1cc235ece} 
+\#define L33\+T\+\_\+\+ERR\+\_\+\+OK~0}
+
+\Hypertarget{l33t_8h_afa99ec4acc4ecb2dc3c2d05da15d0e3f}\index{l33t.h@{l33t.h}!MAX@{MAX}}
+\index{MAX@{MAX}!l33t.h@{l33t.h}}
+\doxysubsubsection{\texorpdfstring{MAX}{MAX}}
+{\footnotesize\ttfamily \label{l33t_8h_afa99ec4acc4ecb2dc3c2d05da15d0e3f} 
+\#define MAX(\begin{DoxyParamCaption}\item[{}]{a}{, }\item[{}]{b}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((a\ >\ b)\ ?\ a\ :\ b)}
+
+\end{DoxyCode}

@@ -24,4 +24,4 @@ l33t_tree *l33t_tree_init(int *nums, int len)
   return t;
 }
 
-void l33t_tree_destroy(l33t_tree *ll) { free(ll); }
+void l33t_tree_destroy(l33t_tree *tree) { free(tree); }

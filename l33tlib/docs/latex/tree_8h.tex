@@ -1,0 +1,68 @@
+\doxysection{l33tlib/include/tree.h File Reference}
+\hypertarget{tree_8h}{}\label{tree_8h}\index{l33tlib/include/tree.h@{l33tlib/include/tree.h}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtree__s}{tree\+\_\+s}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structtree__s}{tree\+\_\+s}} \mbox{\hyperlink{tree_8h_a28303d07d940c2ff3cebdc66a2c205f5}{l33t\+\_\+tree}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{tree_8h_a28303d07d940c2ff3cebdc66a2c205f5}{l33t\+\_\+tree}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{tree_8h_a7a56fc70589976279e3b503a4fea99bc}{l33t\+\_\+tree\+\_\+init}} (int \texorpdfstring{$\ast$}{*}nums, int len)
+\begin{DoxyCompactList}\small\item\em Initialize a tree. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tree_8h_a9327fcc78a3dc43aac066f5e8f400db3}{l33t\+\_\+tree\+\_\+destroy}} (\mbox{\hyperlink{tree_8h_a28303d07d940c2ff3cebdc66a2c205f5}{l33t\+\_\+tree}} \texorpdfstring{$\ast$}{*}tree)
+\begin{DoxyCompactList}\small\item\em Deallocate the memory used by a tree. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{tree_8h_a28303d07d940c2ff3cebdc66a2c205f5}\index{tree.h@{tree.h}!l33t\_tree@{l33t\_tree}}
+\index{l33t\_tree@{l33t\_tree}!tree.h@{tree.h}}
+\doxysubsubsection{\texorpdfstring{l33t\_tree}{l33t\_tree}}
+{\footnotesize\ttfamily \label{tree_8h_a28303d07d940c2ff3cebdc66a2c205f5} 
+typedef struct \mbox{\hyperlink{structtree__s}{tree\+\_\+s}} \mbox{\hyperlink{tree_8h_a28303d07d940c2ff3cebdc66a2c205f5}{l33t\+\_\+tree}}}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{tree_8h_a9327fcc78a3dc43aac066f5e8f400db3}\index{tree.h@{tree.h}!l33t\_tree\_destroy@{l33t\_tree\_destroy}}
+\index{l33t\_tree\_destroy@{l33t\_tree\_destroy}!tree.h@{tree.h}}
+\doxysubsubsection{\texorpdfstring{l33t\_tree\_destroy()}{l33t\_tree\_destroy()}}
+{\footnotesize\ttfamily \label{tree_8h_a9327fcc78a3dc43aac066f5e8f400db3} 
+void l33t\+\_\+tree\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tree_8h_a28303d07d940c2ff3cebdc66a2c205f5}{l33t\+\_\+tree}} \texorpdfstring{$\ast$}{*}}]{tree}{}\end{DoxyParamCaption})}
+
+
+
+Deallocate the memory used by a tree. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em tree} & The tree. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{tree_8h_a7a56fc70589976279e3b503a4fea99bc}\index{tree.h@{tree.h}!l33t\_tree\_init@{l33t\_tree\_init}}
+\index{l33t\_tree\_init@{l33t\_tree\_init}!tree.h@{tree.h}}
+\doxysubsubsection{\texorpdfstring{l33t\_tree\_init()}{l33t\_tree\_init()}}
+{\footnotesize\ttfamily \label{tree_8h_a7a56fc70589976279e3b503a4fea99bc} 
+\mbox{\hyperlink{tree_8h_a28303d07d940c2ff3cebdc66a2c205f5}{l33t\+\_\+tree}} \texorpdfstring{$\ast$}{*} l33t\+\_\+tree\+\_\+init (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{nums}{, }\item[{int}]{len}{}\end{DoxyParamCaption})}
+
+
+
+Initialize a tree. 
+
+Allocates memory and assigns nodes according to values in nums. Use -\/1 to create a NULL node.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em nums} & An arrray of integers to be inserted as nodes. \\
+\hline
+\mbox{\texttt{ in}}  & {\em len} & The length of nums. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The tree. 
+\end{DoxyReturn}
