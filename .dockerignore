@@ -5,3 +5,6 @@ zig-cache
 .vscode
 .github
 scrape
+
+# will be mounted to docker container
+problems

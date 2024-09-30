@@ -14,6 +14,5 @@ RUN wget https://ziglang.org/download/0.13.0/zig-linux-x86_64-0.13.0.tar.xz -O /
 RUN pip install -r requirements.txt --break-system-packages
 RUN go mod download
 RUN zig build
-RUN mkdir -p build && cd build && cmake .. -G Ninja -USE_LOCAL_IGRAPH=ON && ninja
 
-CMD ["python3", "run_tests.py"]
+CMD ["python3", "build_and_test.py"]
