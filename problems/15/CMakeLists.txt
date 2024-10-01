@@ -1,0 +1,6 @@
+add_executable(15_ransom_note)
+target_link_libraries(15_ransom_note PRIVATE criterion)
+target_link_libraries(15_ransom_note PRIVATE stb)
+target_link_libraries(15_ransom_note PRIVATE l33t)
+target_sources(15_ransom_note PRIVATE ransom_note.c)
+add_test(NAME 15_ransom_note COMMAND 15_ransom_note)

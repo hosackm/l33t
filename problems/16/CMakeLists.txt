@@ -1,0 +1,5 @@
+add_executable(16_climbing_stairs)
+target_link_libraries(16_climbing_stairs PRIVATE criterion)
+target_link_libraries(16_climbing_stairs PRIVATE l33t)
+target_sources(16_climbing_stairs PRIVATE climbing_stairs.c)
+add_test(NAME 16_climbing_stairs COMMAND 16_climbing_stairs)
