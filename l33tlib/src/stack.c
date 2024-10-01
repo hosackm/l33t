@@ -1,4 +1,6 @@
+#include "stack.h"
 #include <l33t.h>
+#include <string.h> // memset
 
 #define STB_DS_IMPLEMENTATION
 #include <stb_ds.h>
@@ -6,6 +8,7 @@
 l33t_stack *l33t_stack_init()
 {
   l33t_stack *st = malloc(sizeof(l33t_stack));
+  memset(st, 0, sizeof(l33t_stack));
   return st;
 }
 

@@ -1,10 +1,11 @@
 #include <l33t.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include <stdlib.h> // malloc, ree
+#include <string.h> // memset
 
 l33t_tree *l33t_tree_init(int *nums, int len)
 {
   l33t_tree *t = malloc(sizeof(l33t_tree) * len);
+  memset(t, 0, sizeof(l33t_tree));
 
   for (int i = 0; i < len; i++)
   {
