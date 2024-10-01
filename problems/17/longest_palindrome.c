@@ -1,3 +1,4 @@
+#include <stdint.h>
 #include <string.h>
 
 #include <criterion/criterion.h>
