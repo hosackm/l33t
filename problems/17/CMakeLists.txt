@@ -1,0 +1,6 @@
+add_executable(17_longest_palindrome)
+target_link_libraries(17_longest_palindrome PRIVATE criterion)
+target_link_libraries(17_longest_palindrome PRIVATE stb)
+target_link_libraries(17_longest_palindrome PRIVATE l33t)
+target_sources(17_longest_palindrome PRIVATE longest_palindrome.c)
+add_test(NAME 17_longest_palindrome COMMAND 17_longest_palindrome)
