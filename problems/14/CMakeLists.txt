@@ -1,0 +1,5 @@
+add_executable(14_first_bad_version)
+target_link_libraries(14_first_bad_version PRIVATE criterion)
+target_link_libraries(14_first_bad_version PRIVATE l33t)
+target_sources(14_first_bad_version PRIVATE first_bad_version.c)
+add_test(NAME 14_first_bad_version COMMAND 14_first_bad_version)
