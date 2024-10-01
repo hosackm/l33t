@@ -1,0 +1,5 @@
+add_executable(18_reverse_linked_list)
+target_link_libraries(18_reverse_linked_list PRIVATE criterion)
+target_link_libraries(18_reverse_linked_list PRIVATE l33t)
+target_sources(18_reverse_linked_list PRIVATE reverse_linked_list.c)
+add_test(NAME 18_reverse_linked_list COMMAND 18_reverse_linked_list)
