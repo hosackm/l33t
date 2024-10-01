@@ -1,5 +1,5 @@
 #include <l33t.h>
-#include <stdlib.h> // malloc, free
+#include <stdlib.h> // calloc, free
 
 l33t_list *l33t_list_init(int *nums, int len)
 {
@@ -7,7 +7,7 @@ l33t_list *l33t_list_init(int *nums, int len)
   l33t_list *prev = NULL;
   for (int i = 0; i < len; i++)
   {
-    l33t_list *node = malloc(sizeof(l33t_list));
+    l33t_list *node = calloc(1, sizeof(l33t_list));
     node->next = NULL;
     node->val = nums[i];
 

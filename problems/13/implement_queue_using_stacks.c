@@ -1,7 +1,6 @@
-#include "error.h"
-#include "stack.h"
 #include <criterion/criterion.h>
 #include <l33t.h>
+#include <stdlib.h> // calloc
 
 typedef struct queue_s queue;
 struct queue_s
@@ -12,7 +11,7 @@ struct queue_s
 
 queue *queue_init()
 {
-  queue *q = malloc(sizeof(queue));
+  queue *q = calloc(1, sizeof(queue));
   q->stack = l33t_stack_init();
   q->auxiliary = l33t_stack_init();
   return q;

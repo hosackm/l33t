@@ -1,4 +1,6 @@
 #include <criterion/criterion.h>
+#include <stdlib.h> // calloc
+
 #define STB_DS_IMPLEMENTATION
 #include <stb_ds.h>
 
@@ -63,10 +65,10 @@ void floodFill(int **image, int rows, int cols, int sr, int sc, int color)
  */
 int **init_new_image(int *nums, int rows, int cols)
 {
-  int **image = malloc(sizeof(int *) * rows);
+  int **image = calloc(rows, sizeof(int *));
   for (int i = 0; i < rows; i++)
   {
-    image[i] = malloc(sizeof(int) * cols);
+    image[i] = calloc(cols, sizeof(int));
   }
 
   for (int i = 0; i < rows * cols; i++)
