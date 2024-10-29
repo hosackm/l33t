@@ -1,0 +1,4 @@
+add_executable(59_water_container water_container.c)
+target_link_libraries(59_water_container PRIVATE criterion)
+target_link_libraries(59_water_container PRIVATE l33t)
+add_test(NAME 59_water_container COMMAND 59_water_container)
