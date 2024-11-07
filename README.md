@@ -147,3 +147,16 @@ If you'd like to execute a solution's tests directly you can run:
 ```bash
 zig test problems/01/two_sum.zig
 ```
+### Running elixir tests
+
+Like zig tests, all [elixir]() tests from the problems subdirectories have been included in `tests.exs`. You can run them with:
+
+```bash
+$ elixir tests.exs
+
+Running ExUnit with seed: 746382, max_cases: 22
+
+.
+Finished in 0.03 seconds (0.03s on load, 0.00s async, 0.00s sync)
+1 test, 0 failures
+```
